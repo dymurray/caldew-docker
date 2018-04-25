@@ -22,6 +22,7 @@ RUN yum -y install cryptopp cryptopp-devel
 
 #RUN mkdir -p ${BASE_DIR} \
 #             && useradd -u 1002 -r -g 0 -M -d ${BASE_DIR} -b ${BASE_DIR} -s /sbin/nologin -c "nakasendo user" ${USER_NAME}
+RUN mkdir -p /home/nakasendo && chown -R 1001:1001 /home/nakasendo
+USER 1001
 WORKDIR /home/nakasendo
-USER 1000
 ENTRYPOINT ["/bin/sh"]
